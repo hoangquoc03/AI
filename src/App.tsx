@@ -1,8 +1,8 @@
-import "./App.css";
+import Navbar from "./customer/components/Navbar";
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl">Code</h1>
+    <div className="">
+      <Navbar />
     </div>
   );
 }
