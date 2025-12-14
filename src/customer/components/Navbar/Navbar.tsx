@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top Announcement Bar */}
-      <div className="bg-indigo-700 text-white text-[10px] sm:text-xs font-medium py-2 text-center tracking-wide">
+      <div className="z-30 bg-primary-color text-white text-[10px] sm:text-xs font-medium py-2 text-center tracking-wide">
         MIỄN PHÍ VẬN CHUYỂN CHO ĐƠN HÀNG TRÊN 500K
       </div>
 
@@ -40,28 +40,99 @@ const Navbar = () => {
             </div>
 
             {/* Center Menu */}
-            <div className="hidden md:flex items-center justify-center gap-1">
-              <Link
-                to="/men"
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
-              >
-                Nam
-              </Link>
+            <div className="hidden md:flex items-center justify-center gap-1 relative">
+              {/* Nam */}
+              <div className="group relative">
+                <Link
+                  to="/men"
+                  className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  Nam
+                </Link>
+                {/* Submenu */}
+                <div className="absolute top-full left-0 mt-1 hidden group-hover:block w-40 bg-white border border-slate-200 shadow-lg rounded-md z-50">
+                  <Link
+                    to="/men/shirts"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:text-primary-color"
+                  >
+                    Áo sơ mi
+                  </Link>
+                  <Link
+                    to="/men/pants"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Quần dài
+                  </Link>
+                  <Link
+                    to="/men/shoes"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Giày dép
+                  </Link>
+                </div>
+              </div>
 
-              <Link
-                to="/women"
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
-              >
-                Nữ
-              </Link>
+              {/* Nữ */}
+              <div className="group relative">
+                <Link
+                  to="/women"
+                  className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  Nữ
+                </Link>
+                <div className="absolute top-full left-0 mt-1 hidden group-hover:block w-40 bg-white border border-slate-200 shadow-lg rounded-md z-50">
+                  <Link
+                    to="/women/dresses"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Váy
+                  </Link>
+                  <Link
+                    to="/women/tops"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Áo
+                  </Link>
+                  <Link
+                    to="/women/shoes"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Giày dép
+                  </Link>
+                </div>
+              </div>
 
-              <Link
-                to="/accessories"
-                className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
-              >
-                Phụ kiện
-              </Link>
+              {/* Phụ kiện */}
+              <div className="group relative">
+                <Link
+                  to="/accessories"
+                  className="rounded-full px-4 py-2 text-sm font-medium text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                >
+                  Phụ kiện
+                </Link>
+                <div className="absolute top-full left-0 mt-1 hidden group-hover:block w-40 bg-white border border-slate-200 shadow-lg rounded-md z-50">
+                  <Link
+                    to="/accessories/bags"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Túi xách
+                  </Link>
+                  <Link
+                    to="/accessories/hats"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Mũ
+                  </Link>
+                  <Link
+                    to="/accessories/jewelry"
+                    className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    Trang sức
+                  </Link>
+                </div>
+              </div>
 
+              {/* Sale */}
               <Link
                 to="/sale"
                 className="rounded-full px-4 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 hover:text-rose-700"
@@ -111,7 +182,7 @@ const Navbar = () => {
                   data-icon="lucide:heart"
                   data-width="20"
                 />
-                <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-[9px] font-bold text-white ring-2 ring-white">
+                <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary-color text-[9px] font-bold text-white ring-2 ring-white">
                   2
                 </span>
               </button>
@@ -126,7 +197,7 @@ const Navbar = () => {
                   data-icon="lucide:shopping-bag"
                   data-width="20"
                 />
-                <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-600 text-[9px] font-bold text-white ring-2 ring-white">
+                <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary-color text-[9px] font-bold text-white ring-2 ring-white">
                   2
                 </span>
               </button>
@@ -151,7 +222,7 @@ const Navbar = () => {
                   // Hiển thị Sign In nếu chưa login
                   <Link
                     to="/login"
-                    className="group flex items-center gap-2 rounded-full bg-indigo-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-800 active:scale-95 transition"
+                    className="group flex items-center gap-2 rounded-full bg-primary-color px-4 py-2 text-sm font-medium text-white hover:bg-secondary-color active:scale-95 transition"
                   >
                     <span>Sign In</span>
                     <span
