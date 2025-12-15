@@ -1,6 +1,7 @@
+import clsx from "clsx";
 import { motion } from "framer-motion";
 import React from "react";
-import useShowcaseInteractions from "./useShowcaseInteractions"; // import hook của bạn
+import useShowcaseInteractions from "./useShowcaseInteractions";
 
 interface Category {
   name: string;
@@ -22,8 +23,8 @@ const categories: Category[] = [
     name: "Quần",
     href: "/category/quan",
     img: "https://vn.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-wide-leg-fit-denim-pants--HSD46WPCP65L_PM2_Front%20view.png?wid=1090&hei=1090",
-    colSpan: 8,
-    rowSpan: 1,
+    colSpan: 4,
+    rowSpan: 2,
   },
   {
     name: "Váy",
@@ -41,84 +42,109 @@ const categories: Category[] = [
   },
 ];
 
-const textVariants = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0 },
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
 };
 
-const FashionCategory: React.FC = () => {
-  // Nhúng hook scroll + tilt
+const cardVariants = {
+  hidden: { opacity: 0, y: 60 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      delay: i * 0.12,
+    },
+  }),
+};
+
+const FashionCategoryLuxury: React.FC = () => {
   useShowcaseInteractions();
 
   return (
-    <section className="py-20 px-6 md:px-16 lg:px-24 xl:px-32 bg-slate-50">
+    <section className="relative py-24 px-6 md:px-16 lg:px-24 xl:px-32 bg-gradient-to-b from-slate-50 via-white to-slate-100">
       {/* Header */}
       <motion.div
-        className="max-w-3xl mx-auto md:mx-0 md:pl-6 lg:pl-16 reveal-on-scroll"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8 }}
-        variants={textVariants}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="max-w-3xl mb-16"
       >
-        <h1 className="text-3xl font-semibold text-gray-900">
-          Các Danh Mục Thời Trang
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+          Các danh mục thời trang Luxury
         </h1>
-        <p className="text-sm text-gray-500 mt-2">
-          Khám phá các bộ sưu tập quần áo, giày dép và phụ kiện mới nhất, được
-          thiết kế để phù hợp với mọi phong cách và xu hướng hiện đại.
+        <p className="mt-3 text-sm md:text-base text-gray-500 leading-relaxed">
+          Bộ sưu tập được tuyển chọn lấy cảm hứng từ phom dáng hiện đại, chất
+          liệu cao cấp và vẻ đẹp sang trọng vượt thời gian.
         </p>
       </motion.div>
 
       {/* Grid */}
-      <div className="mt-12 grid grid-cols-12 gap-6 max-w-7xl mx-auto auto-rows-[300px]">
-        {categories.map((category, index) => (
-          <motion.div
-            key={category.name}
-            className="relative group rounded-2xl overflow-hidden cursor-pointer border border-white/5 shadow-lg reveal-on-scroll"
-            data-tilt
-            style={{
-              gridColumn: `span ${category.colSpan || 3}`,
-              gridRow: `span ${category.rowSpan || 1}`,
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
-          >
-            <motion.img
-              src={category.img}
-              alt={category.name}
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100 filter contrast-125"
-            />
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-120px" }}
+        className="grid grid-cols-12 auto-rows-[320px] gap-6 max-w-7xl mx-auto"
+      >
+        {categories.map((category, index) => {
+          const isTall = (category.rowSpan || 1) > 1;
 
-            {/* Overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent"></div>
-
-            {/* Text overlay bên trái */}
-            <motion.div
-              className="absolute top-1/2 left-6 -translate-y-1/2 text-left"
-              variants={textVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+          return (
+            <motion.a
+              key={category.name}
+              href={category.href}
+              custom={index}
+              variants={cardVariants}
+              data-tilt
+              className="group relative rounded-2xl overflow-hidden shadow-xl"
+              style={{
+                gridColumn: `span ${category.colSpan || 3}`,
+                gridRow: `span ${category.rowSpan || 1}`,
+              }}
             >
-              <h3 className="text-xl font-semibold text-white">
-                {category.name}
-              </h3>
-              <a
-                href={category.href}
-                className="mt-1 inline-block text-sm text-indigo-400 font-mono"
+              {/* Image */}
+              <motion.img
+                src={category.img}
+                alt={category.name}
+                loading="lazy"
+                className="w-full h-full object-cover"
+                whileHover={{ scale: 1.08, y: -6 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+              />
+
+              {/* Dark gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/20 to-transparent" />
+
+              {/* Light sweep */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+              {/* Text */}
+              <div
+                className={clsx(
+                  "absolute left-6 right-6 z-10",
+                  isTall ? "bottom-6" : "top-1/2 -translate-y-1/2"
+                )}
               >
-                Xem Thêm →
-              </a>
-            </motion.div>
-          </motion.div>
-        ))}
-      </div>
+                <h3 className="text-xl md:text-2xl font-semibold text-white tracking-wide transition-transform duration-500 group-hover:translate-x-1">
+                  {category.name}
+                </h3>
+                <span className="mt-1 inline-block text-xs md:text-sm text-indigo-300 font-mono tracking-widest opacity-80 group-hover:opacity-100 transition-all">
+                  DISCOVER →
+                </span>
+              </div>
+            </motion.a>
+          );
+        })}
+      </motion.div>
     </section>
   );
 };
 
-export default FashionCategory;
+export default FashionCategoryLuxury;

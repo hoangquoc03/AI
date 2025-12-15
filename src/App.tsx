@@ -1,5 +1,4 @@
 import { ThemeProvider } from "@mui/material";
-import Navbar from "./customer/components/Navbar/Navbar";
 import Home from "./customer/pages/Home/Home";
 import customerTheme from "./Theme/customerTheme";
 function App() {
@@ -23,7 +22,6 @@ function App() {
       <div className="">
         <ThemeProvider theme={customerTheme}>
           <div className="z-10">
-            <Navbar />
             <Home />
           </div>
         </ThemeProvider>

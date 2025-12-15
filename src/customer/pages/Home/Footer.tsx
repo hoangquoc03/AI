@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="relative overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 w-full text-sm text-slate-500 bg-white pt-10">
+    <footer className="mt-10 relative overflow-hidden px-6 md:px-16 lg:px-24 xl:px-32 w-full text-sm text-slate-500 bg-white pt-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14">
         {/* Brand */}
         <div className="lg:col-span-1">
@@ -14,19 +14,19 @@ const Footer = () => {
         {/* Categories */}
         <div className="flex flex-col">
           <h2 className="font-semibold mb-5 text-gray-800">Danh Mục</h2>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Áo thun
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Áo sơ mi
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Quần jean
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Váy & Đầm
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Phụ kiện
           </a>
         </div>
@@ -36,16 +36,16 @@ const Footer = () => {
           <h2 className="font-semibold mb-5 text-gray-800">
             Hỗ Trợ Khách Hàng
           </h2>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Liên hệ
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Hướng dẫn mua hàng
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Chính sách đổi trả
           </a>
-          <a className="hover:text-slate-600 transition" href="#">
+          <a className="hover:text-slate-600 transition" href="ok">
             Vận chuyển & Thanh toán
           </a>
         </div>

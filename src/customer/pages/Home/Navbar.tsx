@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "./CartContext";
+
 const Navbar = () => {
   const [openMobileSearch, setOpenMobileSearch] = useState(false);
+  const { cartItems } = useCart();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userAvatar, setUserAvatar] = useState(
     "https://i.pravatar.cc/40" // avatar mẫu
@@ -193,6 +196,7 @@ const Navbar = () => {
 
               {/* Cart */}
               <button
+                id="navbar-cart"
                 type="button"
                 className="relative flex h-10 w-10 items-center justify-center rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-900"
               >
@@ -201,9 +205,11 @@ const Navbar = () => {
                   data-icon="lucide:shopping-bag"
                   data-width="20"
                 />
-                <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary-color text-[9px] font-bold text-white ring-2 ring-white">
-                  2
-                </span>
+                {cartItems.length > 0 && (
+                  <span className="absolute right-1.5 top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-primary-color text-[9px] font-bold text-white ring-2 ring-white">
+                    {cartItems.length}
+                  </span>
+                )}
               </button>
 
               <div className="h-6 w-px bg-slate-200 mx-1" />
