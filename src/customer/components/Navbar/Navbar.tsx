@@ -8,9 +8,13 @@ const Navbar = () => {
   );
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="z-30 bg-primary-color text-white text-[10px] sm:text-xs font-medium py-2 text-center tracking-wide">
-        MIỄN PHÍ VẬN CHUYỂN CHO ĐƠN HÀNG TRÊN 500K
+      <div className="w-full py-2.5 font-medium text-sm text-white text-center bg-gradient-to-r from-[#4F39F6] to-[#FDFEFF]">
+        <p>
+          <span className="px-3 py-1 rounded-md text-primary-color bg-white mr-2">
+            Ưu đãi ra mắt
+          </span>
+          Miễn phí vận chuyển toàn quốc cho mọi đơn hàng trong thời gian ra mắt
+        </p>
       </div>
 
       {/* Navbar */}
@@ -219,18 +223,52 @@ const Navbar = () => {
                     />
                   </div>
                 ) : (
-                  // Hiển thị Sign In nếu chưa login
-                  <Link
-                    to="/login"
-                    className="group flex items-center gap-2 rounded-full bg-primary-color px-4 py-2 text-sm font-medium text-white hover:bg-secondary-color active:scale-95 transition"
-                  >
-                    <span>Sign In</span>
-                    <span
-                      className="iconify transition-transform group-hover:translate-x-0.5"
-                      data-icon="lucide:arrow-right"
-                      data-width="14"
-                    />
-                  </Link>
+                  <>
+                    <style>{`
+        @keyframes rotate {
+          100% {
+            transform: rotate(1turn);
+          }
+        }
+
+        .rainbow::before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          inset: -50%;
+          width: 200%;
+          height: 200%;
+          background-image: conic-gradient(
+            #7dd3fc,
+            #67e8f9,
+            #60a5fa,
+            #7dd3fc
+          );
+          filter: blur(6px);
+          animation: rotate 4s linear infinite;
+        }
+      `}</style>
+
+                    <Link
+                      to="/login"
+                      className="rainbow relative inline-flex items-center justify-center
+                   rounded-full p-[2px] overflow-hidden transition
+                   active:scale-95 hover:scale-105"
+                    >
+                      <span
+                        className="relative z-10 flex items-center gap-2 rounded-full
+                         bg-white px-5 py-2.5 text-sm font-medium
+                         text-slate-800 border border-sky-200"
+                      >
+                        <span
+                          className="iconify text-sky-500"
+                          data-icon="lucide:log-in"
+                          data-width="16"
+                        />
+                        <span>Sign In</span>
+                      </span>
+                    </Link>
+                  </>
                 )}
               </div>
             </div>

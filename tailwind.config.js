@@ -7,6 +7,9 @@ module.exports = {
         "primary-color": "#01579b",
         "secondary-color": "#1565c0",
       },
+      animation: {
+        "spin-slow": " rotate 4s linear infinite",
+      },
     },
   },
   plugins: [],
