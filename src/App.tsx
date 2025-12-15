@@ -1,5 +1,7 @@
 import { ThemeProvider } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
 import Home from "./customer/pages/Home/Home";
+import SignIn from "./customer/pages/SignIn_Up/SignIn";
 import customerTheme from "./Theme/customerTheme";
 function App() {
   return (
@@ -22,7 +24,10 @@ function App() {
       <div className="">
         <ThemeProvider theme={customerTheme}>
           <div className="z-10">
-            <Home />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<SignIn />} />
+            </Routes>
           </div>
         </ThemeProvider>
       </div>
