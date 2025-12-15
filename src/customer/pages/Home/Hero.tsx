@@ -5,29 +5,30 @@ const Hero: React.FC = () => {
   return (
     <div>
       <main className="flex flex-col max-md:gap-16 md:flex-row pb-20 items-center justify-between pt-[120px] px-4 md:px-16 lg:px-24 xl:px-32">
-        <div className="flex flex-col items-center md:items-start">
-          <h5 className="text-4xl md:text-6xl/[76px] font-semibold max-w-xl bg-gradient-to-r from-slate-900 to-[#6D8FE4] text-transparent bg-clip-text">
-            Build Skills That Get You Hired
-          </h5>
+        <div className="flex flex-col items-center md:items-start gap-6 px-4 md:px-0">
+          {/* Tiêu đề */}
+          <h1 className="text-4xl md:text-6xl font-extrabold max-w-xl text-transparent bg-clip-text animate-gradientText bg-gradient-to-r from-blue-500 via-indigo-600 to-sky-400">
+            Thời Trang Nổi Bật – Tỏa Sáng Phong Cách
+          </h1>
 
-          <p className="text-sm md:text-base max-w-lg mt-6 max-md:px-2 text-slate-600">
-            Join a world-class, personalized learning journey built to turn you
-            into a high-performing tech professional — and get hired by top
-            product companies.
+          {/* Mô tả */}
+          <p className="text-sm md:text-base max-w-lg text-slate-700">
+            Khám phá bộ sưu tập quần áo, giày dép và phụ kiện độc quyền. Chất
+            lượng cao – Phong cách riêng – Giá cả hợp lý. Mua sắm ngay để tạo
+            dấu ấn cá nhân!
           </p>
 
-          <div className="flex items-center gap-4 mt-6">
-            <button
-              className="px-8 py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white active:scale-95 transition-all"
-              type="button"
-            >
-              Get Started
+          {/* Nút CTA */}
+          <div className="flex flex-col sm:flex-row items-center gap-4">
+            {/* Nút chính */}
+            <button className="relative px-8 py-3 font-semibold text-white rounded-lg bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              Mua Ngay
+              {/* Glow effect */}
+              <span className="absolute inset-0 rounded-lg bg-blue-400 blur opacity-30 hover:opacity-50 transition-all duration-300"></span>
             </button>
 
-            <button
-              className="px-5 py-3 rounded-md bg-white text-indigo-600 border border-indigo-400 flex items-center gap-2 hover:bg-indigo-600/5 active:scale-95 transition-all"
-              type="button"
-            >
+            {/* Nút phụ */}
+            <button className="flex items-center gap-2 px-5 py-3 rounded-lg border border-blue-400 text-blue-600 bg-white hover:bg-blue-50 hover:scale-105 transition-all duration-300 shadow-sm">
               <svg
                 width="16"
                 height="15"
@@ -42,35 +43,25 @@ const Hero: React.FC = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-                <path
-                  d="M13.3105 1.66016V4.29487"
-                  stroke="#4F39F6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M14.6328 2.97656H11.998"
-                  stroke="#4F39F6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M2.76953 10.8809V12.1982"
-                  stroke="#4F39F6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M3.42673 11.541H2.10938"
-                  stroke="#4F39F6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
               </svg>
-              <span>Our courses</span>
+              <span>Bộ sưu tập</span>
             </button>
           </div>
+
+          {/* Tailwind animation */}
+          <style>{`
+    @keyframes gradientText {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .animate-gradientText {
+      background-size: 200% 200%;
+      animation: gradientText 6s ease infinite;
+    }
+  `}</style>
         </div>
+
         <div className="md:translate-y-6">
           <ShowcaseCard />
         </div>

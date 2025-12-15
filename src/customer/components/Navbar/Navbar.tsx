@@ -8,9 +8,9 @@ const Navbar = () => {
   );
   return (
     <>
-      <div className="w-full py-2.5 font-medium text-sm text-white text-center bg-gradient-to-r from-[#4F39F6] to-[#FDFEFF]">
-        <p>
-          <span className="px-3 py-1 rounded-md text-primary-color bg-white mr-2">
+      <div className="w-full py-1.5 text-center bg-white/10 backdrop-blur-sm">
+        <p className="text-xs md:text-sm text-gray-700 font-medium inline-flex items-center justify-center gap-1">
+          <span className="px-2 py-0.5 rounded-full text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-indigo-600 to-sky-400">
             Ưu đãi ra mắt
           </span>
           Miễn phí vận chuyển toàn quốc cho mọi đơn hàng trong thời gian ra mắt
@@ -18,11 +18,11 @@ const Navbar = () => {
       </div>
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between gap-4">
+      <nav className=" sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/80 backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 md:px-16 lg:px-24 xl:px-32">
+          <div className="flex items-center justify-between h-16 ">
             {/* Left */}
-            <div className="flex items-center gap-4">
+            <div className="absolute left-0 flex items-center gap-4">
               {/* Mobile Menu */}
               <button
                 type="button"
@@ -37,14 +37,14 @@ const Navbar = () => {
 
               {/* Logo */}
               <Link to="/" className="flex items-center gap-2">
-                <span className="logo text-xl font-semibold tracking-tight text-slate-900">
+                <span className="ml-[127px] logo text-xl font-semibold tracking-tight text-slate-900">
                   LWShop
                 </span>
               </Link>
             </div>
 
             {/* Center Menu */}
-            <div className="hidden md:flex items-center justify-center gap-1 relative">
+            <div className="mx-auto hidden md:flex items-center justify-center gap-1 relative">
               {/* Nam */}
               <div className="group relative">
                 <Link
@@ -146,7 +146,7 @@ const Navbar = () => {
             </div>
 
             {/* Right */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="absolute right-[120px] flex items-center gap-2 sm:gap-3 flex-shrink-0">
               {/* Search Desktop */}
               <div className="group relative hidden sm:block">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">

@@ -1,11 +1,15 @@
-import ElectricCategory from "./ElectricCategory";
+import FashionCategory from "./FashionCategory";
+import FeatureSection from "./FeatureSection";
+import Footer from "./Footer";
 import Hero from "./Hero";
 
 const Home = () => {
   return (
-    <div>
+    <div className="z-10">
       <Hero />
-      <ElectricCategory />
+      <FeatureSection />
+      <FashionCategory />
+      <Footer />
     </div>
   );
 };
