@@ -1,9 +1,16 @@
 import { ThemeProvider } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
+import Dashboard from "./admin/Dashboard";
+import User from "./admin/User";
 import Home from "./customer/pages/Home/Home";
 import SignIn from "./customer/pages/SignIn_Up/SignIn";
 import customerTheme from "./Theme/customerTheme";
+import { useEffect } from "react";
+import { fetchProduct } from "./State/fetchProduct";
 function App() {
+  useEffect(() => {
+    fetchProduct();
+  });
   return (
     <div className="min-h-screen w-full bg-white relative z-0">
       {/* Dual Gradient Overlay Swapped Background */}
@@ -23,10 +30,23 @@ function App() {
 
       <div className="">
         <ThemeProvider theme={customerTheme}>
-          <div className="z-10">
+          <div>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<SignIn />} />
+
+              {/* ADMIN LAYOUT */}
+              <Route
+                path="/admin"
+                element={
+                  <div className="relative z-20">
+                    <Dashboard />
+                  </div>
+                }
+              >
+                <Route index element={<div>Dashboard Home</div>} />
+                <Route path="users" element={<User />} />
+              </Route>
             </Routes>
           </div>
         </ThemeProvider>
